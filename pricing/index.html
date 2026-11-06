@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+<!-- Offline archive of https://prototable.gg/pricing captured with Toolspea Website Clone on 2026-11-06T18:17:44.281Z. Server-dependent features such as forms, search and checkout only work on the live site. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- ─ Primary meta ─ -->
+    <title>Prototable pricing: free, Designer and Studio plans</title>
+    <meta name="description" content="Free for two games. Designer is $59 a year, Studio $99. Players always join free, from a link." />
+    <!-- No canonical link tag here on purpose. This shell is served for
+         EVERY SPA route (/explore, /set/:id, /app, …), so a hardcoded canonical
+         of "../index.html" would tell Google that the games directory and every public set
+         page are duplicates of the marketing home page and drop them from the
+         index. The server adds the right one for "../index.html", /explore and each /set/:id
+         when it writes their readable content (apps/api/src/lib/crawlable.ts). -->
+    <meta name="theme-color" content="#4a7a3a" />
+
+    <!-- ─ JSON-LD Structured Data ─ -->
+    <!-- What search and AI engines read about the product (crawlers don't run
+         the app). Keep it true: prices here match PLAN_PRICES in
+         packages/shared/src/billing.ts, and /pricing prints them live. -->
+    <!-- ─ Open Graph (Facebook, Discord, iMessage, Slack, LinkedIn) ─ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Prototable.gg" />
+    <meta property="og:title" content="Prototable pricing: free, Designer and Studio plans" />
+    <meta property="og:description" content="Free for two games. Designer is $59 a year, Studio $99. Players always join free, from a link." />
+    <meta property="og:url" content="https://prototable.gg/pricing" /><meta property="og:image" content="../assets/images/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Prototable.gg — design and playtest tabletop games in the browser" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ─ Twitter card ─ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Prototable pricing: free, Designer and Studio plans" />
+    <meta name="twitter:description" content="Free for two games. Designer is $59 a year, Studio $99. Players always join free, from a link." />
+    <meta name="twitter:image" content="../assets/images/og.jpg" />
+    <meta name="twitter:image:alt" content="Prototable.gg — design and playtest tabletop games in the browser" />
+
+    <!-- ─ Dark-mode bootstrap ─ -->
+    <!-- Apply the dark-mode class on <html> before first paint so we never
+         flash light mode. Dark is the default; only an explicit 'false' is light. -->
+    <!-- The server writes a text summary into #root for crawlers that don't run
+         scripts (apps/api/src/lib/crawlable.ts). A browser that runs this
+         never shows it: the app mounts over it, and before then it would be
+         a wall of text. -->
+    <style>html.js #root > main[data-crawl] { display: none }</style>
+    <script>
+      document.documentElement.classList.add('js');
+      try {
+        if (localStorage.getItem('ptc_darkMode') !== 'false') {
+          document.documentElement.classList.add('dark');
+        }
+        // Settings -> Appearance -> Color (src/lib/a11yPrefs.ts): set before the first paint.
+        var darkColor = localStorage.getItem('ptc_darkColor');
+        if (darkColor !== 'slate') document.documentElement.classList.add(darkColor === 'midnight' ? 'ptc-color-midnight' : 'ptc-color-charcoal');
+        // Settings -> Accessibility (src/lib/a11yPrefs.ts): set before the first paint.
+        var a11y = { ptc_highContrast: 'hc', ptc_focusRing: 'kf', ptc_reduceMotion: 'rm', ptc_colorblind: 'cb' };
+        for (var key in a11y) {
+          if (localStorage.getItem(key) === '1') document.documentElement.classList.add(a11y[key]);
+        }
+        var textSize = localStorage.getItem('ptc_textSize');
+        if (textSize === 'large' || textSize === 'larger') document.documentElement.dataset.text = textSize;
+      } catch (e) {}
+    </script>
+
+    <!-- ─ Icons ─ -->
+    <!-- SVG is primary in modern browsers and swaps light/dark with the
+         toolbar theme (see the media query inside). PNG + .ico are the
+         static light-mark fallback for Safari and older browsers.
+         The ?v=N query busts Cloudflare's edge cache AND the browser's
+         sticky favicon cache when the art changes at the same path —
+         BUMP IT whenever a favicon file changes. -->
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+    <link rel="icon" type="image/png" href="../assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="../assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ─ Fonts ─ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="../assets/css/css2.css" rel="stylesheet" />
+    <script type="module" crossorigin src="../assets/js/index-BASNSRmZ.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/css/index-5rAllWBO.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Prototable","url":"https://prototable.gg","applicationCategory":"DesignApplication","operatingSystem":"Web browser","offers":[{"@type":"Offer","name":"Free","price":"0","priceCurrency":"USD"},{"@type":"Offer","name":"Designer","priceCurrency":"USD","price":"59","description":"Billed yearly","url":"https://prototable.gg/pricing"},{"@type":"Offer","name":"Studio","priceCurrency":"USD","price":"99","description":"Billed yearly","url":"https://prototable.gg/pricing"}]}</script>
+<link rel="canonical" href="https://prototable.gg/pricing" />
+</head>
+  <body class="bg-background text-text font-sans antialiased">
+    <div id="root"><main data-crawl style="max-width:760px;margin:48px auto;padding:0 16px;font:16px/1.6 Inter,system-ui,sans-serif">
+<h1>Pricing</h1>
+<p>Every plan is paid once a year. Players you invite always join free.</p>
+<h2>Free: $0, for good</h2><p>For trying your game on the table.</p><p>Includes:</p><ul><li>The full 3D table</li><li>2 games, up to 2 players</li><li>5 card templates, plus boards, tokens and dice</li><li>10 macros and 10 automations</li><li>3 recorded playtests</li></ul>
+<h2>Designer: $59 a year</h2><p>For designers playtesting with their group.</p><p>Everything in Free, plus:</p><ul><li>Up to 6 players</li><li>Unlimited games and templates</li><li>Every playtest recorded</li><li>Your own feedback form</li><li>Unlimited macros and automations</li><li>Your own sounds</li><li>Secret votes</li><li>Read fields from card pictures</li><li>Clean print and export</li></ul>
+<h2>Studio: $99 a year</h2><p>For games going in front of backers, and the team behind them.</p><p>Everything in Designer, plus:</p><ul><li>Up to 12 players</li><li>Kickstarter and Gamefound badges</li><li>Your game promoted in Explore</li><li>We import your game for you</li><li>Full stats for your public game</li><li>Collaborators on your games</li><li>Set what each collaborator can edit</li><li>Narration</li><li>Unlimited sounds</li></ul>
+<h2>Compare plans</h2>
+<table>
+<thead><tr><th></th><th>Free</th><th>Designer</th><th>Studio</th></tr></thead>
+<tbody>
+<tr><th colspan="4">The table</th></tr><tr><th>3D table: piles, lanes, mats, dice, cameras</th><td>Included</td><td>Included</td><td>Included</td></tr>
+<tr><th>Edit cards mid-game</th><td>Included</td><td>Included</td><td>Included</td></tr>
+<tr><th>Players at a table</th><td>2</td><td>6</td><td>12</td></tr>
+<tr><th>Counters, dials, health bars and timers</th><td>Included</td><td>Included</td><td>Included</td></tr>
+<tr><th>Mats with square or hex grids</th><td>Included</td><td>Included</td><td>Included</td></tr>
+<tr><th>Macros</th><td>10 per game</td><td>Unlimited</td><td>Unlimited</td></tr>
+<tr><th>Automations</th><td>10 per game</td><td>Unlimited</td><td>Unlimited</td></tr>
+<tr><th colspan="4">Building your game</th></tr><tr><th>Games</th><td>2</td><td>Unlimited</td><td>Unlimited</td></tr>
+<tr><th>Card templates</th><td>5 per game</td><td>Unlimited</td><td>Unlimited</td></tr>
+<tr><th>Board templates</th><td>2 per game</td><td>Unlimited</td><td>Unlimited</td></tr>
+<tr><th>Token templates</th><td>5 per game</td><td>Unlimited</td><td>Unlimited</td></tr>
+<tr><th>Custom dice</th><td>2 per game</td><td>Unlimited</td><td>Unlimited</td></tr>
+<tr><th>Rules and imports</th><td>Included</td><td>Included</td><td>Included</td></tr>
+<tr><th>Image uploads</th><td>200</td><td>Unlimited</td><td>Unlimited</td></tr>
+<tr><th>Card pictures per import</th><td>70</td><td>Unlimited</td><td>Unlimited</td></tr>
+<tr><th>Read fields from card pictures</th><td>–</td><td>Included</td><td>Included</td></tr>
+<tr><th>We import your game for you</th><td>–</td><td>–</td><td>Included</td></tr>
+<tr><th colspan="4">Playtests</th></tr><tr><th>Recorded playtests</th><td>3 per game</td><td>Unlimited</td><td>Unlimited</td></tr>
+<tr><th>Feedback form when a playtest ends</th><td>Starter questions</td><td>Your own</td><td>Your own</td></tr>
+<tr><th>Review: card notes, keep or discard each change</th><td>Included</td><td>Included</td><td>Included</td></tr>
+<tr><th>How each card plays, and players’ answers across playtests</th><td>–</td><td>Included</td><td>Included</td></tr>
+<tr><th colspan="4">Sound and story</th></tr><tr><th>Built-in sounds, music and eyes closed</th><td>Included</td><td>Included</td><td>Included</td></tr>
+<tr><th>Your own sounds</th><td>–</td><td>20 per game</td><td>Unlimited</td></tr>
+<tr><th>Secret votes</th><td>–</td><td>Included</td><td>Included</td></tr>
+<tr><th>Narration, up to 5 minutes a clip</th><td>–</td><td>–</td><td>Included</td></tr>
+<tr><th colspan="4">Going public</th></tr><tr><th>A public page anyone can play from</th><td>Included</td><td>Included</td><td>Included</td></tr>
+<tr><th>Kickstarter and Gamefound badges</th><td>–</td><td>–</td><td>Included</td></tr>
+<tr><th>Your game promoted in Explore</th><td>–</td><td>–</td><td>Included</td></tr>
+<tr><th>Page views and tables played</th><td>Included</td><td>Included</td><td>Included</td></tr>
+<tr><th>Who sat down, who came back, where they came from</th><td>–</td><td>–</td><td>Included</td></tr>
+<tr><th>Collaborators</th><td>–</td><td>–</td><td>Included</td></tr>
+<tr><th>Print</th><td>Watermarked</td><td>Clean</td><td>Clean</td></tr>
+<tr><th>Download your whole game</th><td>–</td><td>Included</td><td>Included</td></tr>
+</tbody>
+</table>
+<p><a href="../index.html">Start free</a></p>
+</main></div>
+  </body>
+</html>

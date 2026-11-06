@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Adaptive brand mark. The rounded tile contrasts with the browser
+       toolbar: dark tile in light mode, light tile in dark mode (so it
+       reads on any chrome). The hash ink is the opposite; the orange
+       square is constant. Colors swap via prefers-color-scheme. -->
+  <style>
+    .tile { fill: #161616; }
+    .hash { fill: #fdfdfd; }
+    @media (prefers-color-scheme: dark) {
+      .tile { fill: #fdfdfd; }
+      .hash { fill: #161616; }
+    }
+  </style>
+  <rect class="tile" x="0" y="0" width="512" height="512" rx="112" />
+  <!-- vertical bars -->
+  <rect class="hash" x="174" y="87" width="40" height="318" rx="20" />
+  <rect class="hash" x="297" y="87" width="40" height="318" rx="20" />
+  <!-- horizontal bars -->
+  <rect class="hash" x="95" y="162" width="322" height="41" rx="20" />
+  <rect class="hash" x="95" y="292" width="322" height="41" rx="20" />
+  <!-- orange center square -->
+  <rect fill="#fe5703" x="215" y="204" width="82" height="86" rx="12" />
+</svg>

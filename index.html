@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+<!-- Offline archive of https://prototable.gg/ captured with Toolspea Website Clone on 2026-11-06T18:17:44.256Z. Server-dependent features such as forms, search and checkout only work on the live site. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- ─ Primary meta ─ -->
+    <title>Prototable: design and playtest tabletop games in your browser</title>
+    <meta name="description" content="Design and playtest tabletop game prototypes in your browser. Play with anyone from a link and change cards mid-game. Free to start." />
+    <!-- No canonical link tag here on purpose. This shell is served for
+         EVERY SPA route (/explore, /set/:id, /app, …), so a hardcoded canonical
+         of "index.html" would tell Google that the games directory and every public set
+         page are duplicates of the marketing home page and drop them from the
+         index. The server adds the right one for "index.html", /explore and each /set/:id
+         when it writes their readable content (apps/api/src/lib/crawlable.ts). -->
+    <meta name="theme-color" content="#4a7a3a" />
+
+    <!-- ─ JSON-LD Structured Data ─ -->
+    <!-- What search and AI engines read about the product (crawlers don't run
+         the app). Keep it true: prices here match PLAN_PRICES in
+         packages/shared/src/billing.ts, and /pricing prints them live. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Prototable",
+      "alternateName": "Prototable.gg",
+      "url": "https://prototable.gg",
+      "description": "Prototable is a browser tool for designing and playtesting tabletop game prototypes: build your cards and pieces, play them with other people on a shared 3D table from a link, and change the game between (or during) playtests.",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web browser",
+      "offers": [
+        { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "description": "One game. Players always join free." },
+        { "@type": "Offer", "name": "Designer", "price": "59", "priceCurrency": "USD", "description": "Billed yearly." },
+        { "@type": "Offer", "name": "Studio", "price": "99", "priceCurrency": "USD", "description": "Billed yearly." }
+      ],
+      "featureList": [
+        "Card templates with your own fields and layout",
+        "Import cards from a spreadsheet, card images, or a Tabletop Simulator card sheet",
+        "Shared 3D table in the browser; players join from a link, free",
+        "Edit cards during a playtest; everyone sees the change",
+        "Boards, tokens, dice, counters, and play mats with square or hex grids",
+        "Macros and automations",
+        "Recorded playtests, notes on cards, and player feedback",
+        "Public game pages and a Browse directory",
+        "Print sheets for paper playtests"
+      ],
+      "author": { "@type": "Organization", "name": "Prototable" }
+    }
+    </script>
+
+    <!-- ─ Open Graph (Facebook, Discord, iMessage, Slack, LinkedIn) ─ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Prototable.gg" />
+    <meta property="og:title" content="Prototable: design and playtest tabletop games in your browser" />
+    <meta property="og:description" content="Design and playtest tabletop game prototypes in your browser. Play with anyone from a link and change cards mid-game. Free to start." />
+    <meta property="og:url" content="index.html" /><meta property="og:image" content="assets/images/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Prototable.gg — design and playtest tabletop games in the browser" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ─ Twitter card ─ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Prototable: design and playtest tabletop games in your browser" />
+    <meta name="twitter:description" content="Design and playtest tabletop game prototypes in your browser. Play with anyone from a link and change cards mid-game. Free to start." />
+    <meta name="twitter:image" content="assets/images/og.jpg" />
+    <meta name="twitter:image:alt" content="Prototable.gg — design and playtest tabletop games in the browser" />
+
+    <!-- ─ Dark-mode bootstrap ─ -->
+    <!-- Apply the dark-mode class on <html> before first paint so we never
+         flash light mode. Dark is the default; only an explicit 'false' is light. -->
+    <!-- The server writes a text summary into #root for crawlers that don't run
+         scripts (apps/api/src/lib/crawlable.ts). A browser that runs this
+         never shows it: the app mounts over it, and before then it would be
+         a wall of text. -->
+    <style>html.js #root > main[data-crawl] { display: none }</style>
+    <script>
+      document.documentElement.classList.add('js');
+      try {
+        if (localStorage.getItem('ptc_darkMode') !== 'false') {
+          document.documentElement.classList.add('dark');
+        }
+        // Settings -> Appearance -> Color (src/lib/a11yPrefs.ts): set before the first paint.
+        var darkColor = localStorage.getItem('ptc_darkColor');
+        if (darkColor !== 'slate') document.documentElement.classList.add(darkColor === 'midnight' ? 'ptc-color-midnight' : 'ptc-color-charcoal');
+        // Settings -> Accessibility (src/lib/a11yPrefs.ts): set before the first paint.
+        var a11y = { ptc_highContrast: 'hc', ptc_focusRing: 'kf', ptc_reduceMotion: 'rm', ptc_colorblind: 'cb' };
+        for (var key in a11y) {
+          if (localStorage.getItem(key) === '1') document.documentElement.classList.add(a11y[key]);
+        }
+        var textSize = localStorage.getItem('ptc_textSize');
+        if (textSize === 'large' || textSize === 'larger') document.documentElement.dataset.text = textSize;
+      } catch (e) {}
+    </script>
+
+    <!-- ─ Icons ─ -->
+    <!-- SVG is primary in modern browsers and swaps light/dark with the
+         toolbar theme (see the media query inside). PNG + .ico are the
+         static light-mark fallback for Safari and older browsers.
+         The ?v=N query busts Cloudflare's edge cache AND the browser's
+         sticky favicon cache when the art changes at the same path —
+         BUMP IT whenever a favicon file changes. -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ─ Fonts ─ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="assets/css/css2.css" rel="stylesheet" />
+    <script type="module" crossorigin src="assets/js/index-BASNSRmZ.js"></script>
+    <link rel="stylesheet" crossorigin href="assets/css/index-5rAllWBO.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://prototable.gg/#website","name":"Prototable","alternateName":"Prototable.gg","url":"index.html","description":"Design and playtest tabletop game prototypes in your browser. Play with anyone from a link and change cards mid-game. Free to start.","inLanguage":"en","publisher":{"@id":"https://prototable.gg/#organization"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://prototable.gg/#organization","name":"Prototable","url":"index.html","logo":"https://prototable.gg/web-app-manifest-512x512.png","description":"Prototable is a browser tool for designing and playtesting tabletop game prototypes: build your cards and pieces, play them with other people on a shared 3D table from a link, and change the game between (or during) playtests.","sameAs":["https://discord.gg/yxcEBAtFW7"]}</script>
+<link rel="canonical" href="index.html" />
+</head>
+  <body class="bg-background text-text font-sans antialiased">
+    <div id="root"><main data-crawl style="max-width:760px;margin:48px auto;padding:0 16px;font:16px/1.6 Inter,system-ui,sans-serif"><h1>Prototable: The digital kitchen table for tabletop prototypes</h1>
+<p>Design your cards, playtest them with friends in the browser, and change them mid‑game.</p>
+<p><a href="index.html"><strong>Create your own game</strong></a>. Free. No account, nothing to install. Your game stays in the browser until you sign up to keep it.</p>
+<h2>What you can do</h2>
+<h3>Seamless multiplayer: Send a link. Everyone is at the table.</h3><p>Friends join from a link in their browser and every move lands for everyone as it happens. No installs, no accounts, and players are always free.</p><ul><li>Moves, draws and rolls show up for everyone at once</li><li>Hands, seats and turns for each player</li><li>Chat, pings and live cursors</li><li>A PIN or your approval to join, if you like</li></ul>
+<h3>Import from anywhere: Bring the game you already have.</h3><p>Nobody wants to retype a deck. A spreadsheet, a folder of images, a PDF or a Tabletop Simulator sheet becomes cards on the table in a minute.</p><ul><li>Tabletop Simulator card sheets, cut into cards</li><li>Spreadsheets and CSV, one row per card</li><li>A folder of images</li><li>PDFs made for print, a card a page</li><li>Read the fields off a card sheet (Designer)</li></ul>
+<h3>Rapid iteration: Change the game mid‑game.</h3><p>Edit a card while everyone is still playing and the new version lands on the table at once. Record the session, then keep or discard every change.</p><ul><li>Every edit reaches every copy: table, hands and decks</li><li>Notes on cards and feedback from players, saved to the session</li><li>Before and after for each change, kept or discarded in Review</li><li>Restore any session to play on from there</li></ul>
+<h3>Templates: Lay out a card once. Every card follows.</h3><p>Design the frame, the fields and the back. Change the template and the whole deck updates.</p><ul><li>Your own fields, fonts, colors and icons</li><li>Card backs, borders and landscape cards</li><li>Token templates, from discs to hexes</li><li>Edit any card while it is on the table</li></ul>
+<h3>Macros and automations: One button runs the whole deal.</h3><p>Snap steps together into a button, or let the table run a rule for you. No code.</p><ul><li>&quot;Shuffle, then deal 5 to everyone&quot; on one click</li><li>Type &quot;deal 3&quot; in the command box and it happens</li><li>Automations: reshuffle when the deck runs out, and more</li><li>Macros that ask how many before they run</li></ul>
+<h3>A sandbox for any game: If it goes on a table, it goes on this one.</h3><p>Cards, boards, tokens, dice, chess pieces, grids and lanes on a 3D table that feels real, so whatever your game needs is already here.</p><ul><li>Physics dice from d4 to d20, and foil finishes</li><li>Square and hex grids, lanes, mats and piles</li><li>Tokens and counters you can clip to cards</li><li>Stand-ins to play every seat yourself</li></ul>
+<h3>And the rest</h3>
+<ul><li><strong>Classic tables</strong>: Poker, blackjack, Hearts, chess, checkers and Crazy Eights, ready to play or to borrow from.</li><li><strong>The command box</strong>: Type what you want, like &quot;red cube&quot; or &quot;deal 3&quot;, and it lands on the table.</li><li><strong>Rules at the table</strong>: Your rulebook one click away, searchable, while you play.</li><li><strong>Cameras</strong>: Set up the angles your game is played from, and jump to each with one key.</li><li><strong>Edit the table</strong>: Move, resize and layer piles, lanes and mats, then save the layout.</li><li><strong>Print and play</strong>: PDF sheets with cut guides and bleed when it is time for paper.</li><li><strong>Public game pages</strong>: Publish your game with its own page, and let anyone sit down at an open table.</li><li><strong>Collaborators</strong>: Bring your co-designers in, with your games in their list too. On Studio.</li><li><strong>Your shortcuts</strong>: Every keyboard shortcut can be changed to the keys you want.</li></ul>
+<h2>Games you can play right now</h2>
+<ul><li><a href="game/hearts/index.html">Hearts</a>: Dodge every heart and the Queen of Spades. Lowest score wins.</li><li><a href="game/food-your-way-our/index.html">food your way our</a></li><li><a href="game/chess/index.html">Chess</a>: The classic, with a chess clock that runs itself.</li><li><a href="game/checkers/index.html">Checkers</a>: Jump, capture, get crowned. Stack two to make a king.</li><li><a href="game/crazy-eights/index.html">Crazy Eights</a>: Match the suit or the number. Eights are wild.</li><li><a href="game/blackjack/index.html">Blackjack</a>: Beat the dealer to 21. The table plays the dealer for you.</li><li><a href="game/texas-holdem/index.html">Texas Hold’em</a>: Two cards each, five in the middle, and a lot of bluffing.</li></ul>
+<h2>Questions</h2>
+<h3>What is Prototable?</h3><p>A browser tool for designing and playtesting tabletop game prototypes: build your cards and pieces, play them with other people on a shared 3D table from a link, and change the game between (or during) playtests.</p>
+<h3>Do I need to install anything?</h3><p>No. It runs in the browser on a laptop, desktop, iPad or phone.</p>
+<h3>Do my players need an account or to pay?</h3><p>No. Players you invite join free, from a link. You can start without an account too, and sign up when you want to keep your game.</p>
+<h3>Can I bring in cards I already made?</h3><p>Yes: from a spreadsheet or CSV, a folder of card images, PDFs made for print, or a card sheet such as a Tabletop Simulator deck. Or design cards from templates inside Prototable.</p>
+<h3>Can I change cards during a playtest?</h3><p>Yes. Edit a card and everyone at the table sees the new version right away, without restarting the game.</p>
+<h3>How does it help me learn from a playtest?</h3><p>Record a session and Prototable keeps the notes left on cards, what each card did, and feedback from players. Review lists every change to keep or discard, and on Designer how each card is playing.</p>
+<h3>Can I print my game?</h3><p>Yes. Print sheets with cut guides for a paper playtest. Paid plans print without a watermark.</p>
+<h2>Pricing</h2>
+<p>Free for two games. Designer is $59 a year; Studio $99 a year. Players always join free. <a href="pricing/index.html">See plans</a>.</p>
+<nav><a href="about/index.html">About Prototable</a> &middot; <a href="features/index.html">Features</a> &middot; <a href="card-game-maker/index.html">Card game maker</a> &middot; <a href="pricing/index.html">Pricing</a> &middot; <a href="vs/index.html">Prototable compared with Tabletop Simulator, Tabletopia, Screentop and more</a> &middot; <a href="guides/playtest-a-card-game-online/index.html">How to playtest a card game online</a> &middot; <a href="explore/index.html">Explore games</a></nav></main></div>
+  </body>
+</html>

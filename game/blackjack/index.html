@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+<!-- Offline archive of https://prototable.gg/game/blackjack captured with Toolspea Website Clone on 2026-11-06T18:17:44.276Z. Server-dependent features such as forms, search and checkout only work on the live site. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- ─ Primary meta ─ -->
+    <title>Play Blackjack on Prototable</title>
+    <meta name="description" content="Play Blackjack free in your browser, alone or with friends. 1–5 players, about 20 minutes. Beat the dealer to 21. The table plays the dealer for you." />
+    <!-- No canonical link tag here on purpose. This shell is served for
+         EVERY SPA route (/explore, /set/:id, /app, …), so a hardcoded canonical
+         of "../../index.html" would tell Google that the games directory and every public set
+         page are duplicates of the marketing home page and drop them from the
+         index. The server adds the right one for "../../index.html", /explore and each /set/:id
+         when it writes their readable content (apps/api/src/lib/crawlable.ts). -->
+    <meta name="theme-color" content="#4a7a3a" />
+
+    <!-- ─ JSON-LD Structured Data ─ -->
+    <!-- What search and AI engines read about the product (crawlers don't run
+         the app). Keep it true: prices here match PLAN_PRICES in
+         packages/shared/src/billing.ts, and /pricing prints them live. -->
+    <!-- ─ Open Graph (Facebook, Discord, iMessage, Slack, LinkedIn) ─ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Prototable.gg" />
+    <meta property="og:title" content="Play Blackjack on Prototable" />
+    <meta property="og:description" content="Play Blackjack free in your browser, alone or with friends. 1–5 players, about 20 minutes. Beat the dealer to 21. The table plays the dealer for you." />
+    <meta property="og:url" content="index.html" /><meta property="og:image" content="../../assets/images/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Prototable.gg — design and playtest tabletop games in the browser" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ─ Twitter card ─ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Play Blackjack on Prototable" />
+    <meta name="twitter:description" content="Play Blackjack free in your browser, alone or with friends. 1–5 players, about 20 minutes. Beat the dealer to 21. The table plays the dealer for you." />
+    <meta name="twitter:image" content="../../assets/images/og.jpg" />
+    <meta name="twitter:image:alt" content="Prototable.gg — design and playtest tabletop games in the browser" />
+
+    <!-- ─ Dark-mode bootstrap ─ -->
+    <!-- Apply the dark-mode class on <html> before first paint so we never
+         flash light mode. Dark is the default; only an explicit 'false' is light. -->
+    <!-- The server writes a text summary into #root for crawlers that don't run
+         scripts (apps/api/src/lib/crawlable.ts). A browser that runs this
+         never shows it: the app mounts over it, and before then it would be
+         a wall of text. -->
+    <style>html.js #root > main[data-crawl] { display: none }</style>
+    <script>
+      document.documentElement.classList.add('js');
+      try {
+        if (localStorage.getItem('ptc_darkMode') !== 'false') {
+          document.documentElement.classList.add('dark');
+        }
+        // Settings -> Appearance -> Color (src/lib/a11yPrefs.ts): set before the first paint.
+        var darkColor = localStorage.getItem('ptc_darkColor');
+        if (darkColor !== 'slate') document.documentElement.classList.add(darkColor === 'midnight' ? 'ptc-color-midnight' : 'ptc-color-charcoal');
+        // Settings -> Accessibility (src/lib/a11yPrefs.ts): set before the first paint.
+        var a11y = { ptc_highContrast: 'hc', ptc_focusRing: 'kf', ptc_reduceMotion: 'rm', ptc_colorblind: 'cb' };
+        for (var key in a11y) {
+          if (localStorage.getItem(key) === '1') document.documentElement.classList.add(a11y[key]);
+        }
+        var textSize = localStorage.getItem('ptc_textSize');
+        if (textSize === 'large' || textSize === 'larger') document.documentElement.dataset.text = textSize;
+      } catch (e) {}
+    </script>
+
+    <!-- ─ Icons ─ -->
+    <!-- SVG is primary in modern browsers and swaps light/dark with the
+         toolbar theme (see the media query inside). PNG + .ico are the
+         static light-mark fallback for Safari and older browsers.
+         The ?v=N query busts Cloudflare's edge cache AND the browser's
+         sticky favicon cache when the art changes at the same path —
+         BUMP IT whenever a favicon file changes. -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg" />
+    <link rel="icon" type="image/png" href="../../assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="../../assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ─ Fonts ─ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="../../assets/css/css2.css" rel="stylesheet" />
+    <script type="module" crossorigin src="../../assets/js/index-BASNSRmZ.js"></script>
+    <link rel="stylesheet" crossorigin href="../../assets/css/index-5rAllWBO.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Game","name":"Blackjack","url":"index.html","description":"Beat the dealer to 21. The table plays the dealer for you.","numberOfPlayers":{"@type":"QuantitativeValue","minValue":1,"maxValue":5},"timeRequired":"PT20M","isAccessibleForFree":true}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Prototable","item":"../../index.html"},{"@type":"ListItem","position":2,"name":"Games","item":"../../explore/index.html"},{"@type":"ListItem","position":3,"name":"Blackjack","item":"index.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I play Blackjack online for free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Blackjack plays in your browser on Prototable, free, with nothing to download. Open it, choose how you want to play, and you're at the table."}},{"@type":"Question","name":"How many people can play Blackjack?","acceptedAnswer":{"@type":"Answer","text":"Blackjack is for 1–5 players. You can also play every seat yourself, to learn it or to try it out alone."}},{"@type":"Question","name":"How long does a game of Blackjack take?","acceptedAnswer":{"@type":"Answer","text":"About 20 minutes."}},{"@type":"Question","name":"Do my friends need an account to play?","acceptedAnswer":{"@type":"Answer","text":"No. Share the table's link and they join from their browser, on a laptop or a tablet. No sign-up, no download."}}]}</script>
+<link rel="canonical" href="index.html" />
+</head>
+  <body class="bg-background text-text font-sans antialiased">
+    <div id="root"><main data-crawl style="max-width:760px;margin:48px auto;padding:0 16px;font:16px/1.6 Inter,system-ui,sans-serif"><nav aria-label="Breadcrumb"><a href="../../index.html">Prototable</a> &rsaquo; <a href="../../explore/index.html">Games</a> &rsaquo; Blackjack</nav>
+<h1>Play Blackjack online</h1>
+<p>Beat the dealer to 21. The table plays the dealer for you.</p>
+<p>1–5 players, about 20 minutes</p>
+
+
+<p><a href="index.html"><strong>Play Blackjack now</strong></a>: free, in your browser, nothing to download. Play every seat yourself, open a table for friends and send them the link, or sit down at an open table with anyone.</p>
+<h2>How to play Blackjack</h2>
+<p><strong>The goal:</strong> Beat the dealer: get closer to 21 than the dealer does, without going over.</p>
+<h3>Setup</h3>
+<p>You play against the <strong>dealer</strong>, not each other, and the table plays the dealer for you.</p>
+<p>Your counter shows two numbers: your <strong>Chips</strong> (100 to start) and your <strong>Bet</strong>. Click a number to pick it, then use − and +.</p>
+<p>The bar at the top runs the round: <strong>Bets</strong>, <strong>Players</strong>, <strong>Dealer</strong>, <strong>Payout</strong>. Press <strong>Next</strong> to move it on.</p>
+<ol><li><strong>Bets</strong>: everyone moves chips into their Bet. The table has gathered and shuffled the cards.</li><li>Press <strong>Next</strong>. You get two cards in your hand: play them face up in front of you. The dealer gets one face up and one face down.</li></ol>
+<h3>Card values</h3>
+<h4>What cards are worth</h4>
+<ul><li><strong>2 to 10</strong>: their number.</li><li><strong>Jack, Queen, King</strong>: 10.</li><li><strong>Ace</strong>: 1 or 11, whichever helps you.</li></ul>
+<p>An ace and a ten-card as your first two is <strong>blackjack</strong>, the best hand there is.</p>
+<h3>Your turn</h3>
+<p>Going round the table, each player in turn (the bar shows whose):</p>
+<ul><li><strong>Hits</strong>: press <strong>Hit</strong> for another card, and play it face up. As often as you like.</li><li><strong>Stands</strong>: keeps what they have.</li><li><strong>Doubles down</strong>: doubles the bet, takes exactly one more card, then stands.</li></ul>
+<p>Go over 21 and you <strong>bust</strong>: you lose your bet straight away.</p>
+<p>When you're done, press <strong>Next</strong> to pass to the next seat.</p>
+<h3>The dealer</h3>
+<h4>The dealer plays last</h4>
+<p>After the last seat, <strong>Next</strong> brings the dealer's turn, and the table plays it: it turns over the hole card, then hits until the dealer has <strong>17 or more</strong>, and stands. An ace counts 11 unless that would go over 21.</p>
+<ul><li>Dealer busts: everyone still in wins.</li><li>Otherwise, closer to 21 wins. A tie gets your bet back.</li></ul>
+<p>Press <strong>Next</strong> for <strong>Payout</strong>: a win gets your bet back plus the same again, blackjack pays <strong>3 to 2</strong>. <strong>Next</strong> again starts a new round: the table gathers the cards and shuffles.</p>
+<p>The full rules, with examples: <a href="../../how-to-play/blackjack/index.html">how to play Blackjack</a>.</p>
+
+<h2>About Blackjack</h2>
+<p>A classic table, set up and ready to play on Prototable.</p>
+<p>Played 32 times on Prototable.</p>
+<h2>More classic tables</h2><ul><li><a href="../hearts/index.html">Hearts</a>: Dodge every heart and the Queen of Spades. Lowest score wins.</li><li><a href="../chess/index.html">Chess</a>: The classic, with a chess clock that runs itself.</li><li><a href="../checkers/index.html">Checkers</a>: Jump, capture, get crowned. Stack two to make a king.</li><li><a href="../crazy-eights/index.html">Crazy Eights</a>: Match the suit or the number. Eights are wild.</li><li><a href="../texas-holdem/index.html">Texas Hold’em</a>: Two cards each, five in the middle, and a lot of bluffing.</li></ul>
+<h2>Questions</h2>
+<h3>Can I play Blackjack online for free?</h3><p>Yes. Blackjack plays in your browser on Prototable, free, with nothing to download. Open it, choose how you want to play, and you're at the table.</p>
+<h3>How many people can play Blackjack?</h3><p>Blackjack is for 1–5 players. You can also play every seat yourself, to learn it or to try it out alone.</p>
+<h3>How long does a game of Blackjack take?</h3><p>About 20 minutes.</p>
+<h3>Do my friends need an account to play?</h3><p>No. Share the table's link and they join from their browser, on a laptop or a tablet. No sign-up, no download.</p>
+<p><a href="../../explore/index.html">More games to play</a> &middot; <a href="../../index.html">Make your own game on Prototable</a></p>
+<nav><a href="../../about/index.html">About Prototable</a> &middot; <a href="../../features/index.html">Features</a> &middot; <a href="../../card-game-maker/index.html">Card game maker</a> &middot; <a href="../../pricing/index.html">Pricing</a> &middot; <a href="../../vs/index.html">Prototable compared with Tabletop Simulator, Tabletopia, Screentop and more</a> &middot; <a href="../../guides/playtest-a-card-game-online/index.html">How to playtest a card game online</a> &middot; <a href="../../explore/index.html">Explore games</a></nav></main></div>
+  </body>
+</html>

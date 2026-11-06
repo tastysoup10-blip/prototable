@@ -1,0 +1,13 @@
+{
+  "site": "https://prototable.gg/",
+  "mode": "entire",
+  "startedAt": "2026-11-06T18:17:00.958Z",
+  "completedAt": "2026-11-06T18:17:46.393Z",
+  "pagesDiscovered": 100,
+  "pagesDownloaded": 100,
+  "pagesSkipped": 0,
+  "assetsDownloaded": 480,
+  "assetsMissing": 10,
+  "bytes": 25779350,
+  "errors": 0
+}

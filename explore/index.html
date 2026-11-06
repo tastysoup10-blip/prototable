@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+<!-- Offline archive of https://prototable.gg/explore captured with Toolspea Website Clone on 2026-11-06T18:17:44.412Z. Server-dependent features such as forms, search and checkout only work on the live site. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- ─ Primary meta ─ -->
+    <title>Explore tabletop game prototypes on Prototable</title>
+    <meta name="description" content="Browse card games and board games in progress, published by their designers on Prototable. Play them in your browser from a link." />
+    <!-- No canonical link tag here on purpose. This shell is served for
+         EVERY SPA route (/explore, /set/:id, /app, …), so a hardcoded canonical
+         of "/" would tell Google that the games directory and every public set
+         page are duplicates of the marketing home page and drop them from the
+         index. The server adds the right one for "/", /explore and each /set/:id
+         when it writes their readable content (apps/api/src/lib/crawlable.ts). -->
+    <meta name="theme-color" content="#4a7a3a" />
+
+    <!-- ─ JSON-LD Structured Data ─ -->
+    <!-- What search and AI engines read about the product (crawlers don't run
+         the app). Keep it true: prices here match PLAN_PRICES in
+         packages/shared/src/billing.ts, and /pricing prints them live. -->
+    <!-- ─ Open Graph (Facebook, Discord, iMessage, Slack, LinkedIn) ─ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Prototable.gg" />
+    <meta property="og:title" content="Explore tabletop game prototypes on Prototable" />
+    <meta property="og:description" content="Browse card games and board games in progress, published by their designers on Prototable. Play them in your browser from a link." />
+    <meta property="og:url" content="index.html" /><meta property="og:image" content="../assets/images/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Prototable.gg — design and playtest tabletop games in the browser" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ─ Twitter card ─ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Explore tabletop game prototypes on Prototable" />
+    <meta name="twitter:description" content="Browse card games and board games in progress, published by their designers on Prototable. Play them in your browser from a link." />
+    <meta name="twitter:image" content="../assets/images/og.jpg" />
+    <meta name="twitter:image:alt" content="Prototable.gg — design and playtest tabletop games in the browser" />
+
+    <!-- ─ Dark-mode bootstrap ─ -->
+    <!-- Apply the dark-mode class on <html> before first paint so we never
+         flash light mode. Dark is the default; only an explicit 'false' is light. -->
+    <!-- The server writes a text summary into #root for crawlers that don't run
+         scripts (apps/api/src/lib/crawlable.ts). A browser that runs this
+         never shows it: the app mounts over it, and before then it would be
+         a wall of text. -->
+    <style>html.js #root > main[data-crawl] { display: none }</style>
+    <script>
+      document.documentElement.classList.add('js');
+      try {
+        if (localStorage.getItem('ptc_darkMode') !== 'false') {
+          document.documentElement.classList.add('dark');
+        }
+        // Settings -> Appearance -> Color (src/lib/a11yPrefs.ts): set before the first paint.
+        var darkColor = localStorage.getItem('ptc_darkColor');
+        if (darkColor !== 'slate') document.documentElement.classList.add(darkColor === 'midnight' ? 'ptc-color-midnight' : 'ptc-color-charcoal');
+        // Settings -> Accessibility (src/lib/a11yPrefs.ts): set before the first paint.
+        var a11y = { ptc_highContrast: 'hc', ptc_focusRing: 'kf', ptc_reduceMotion: 'rm', ptc_colorblind: 'cb' };
+        for (var key in a11y) {
+          if (localStorage.getItem(key) === '1') document.documentElement.classList.add(a11y[key]);
+        }
+        var textSize = localStorage.getItem('ptc_textSize');
+        if (textSize === 'large' || textSize === 'larger') document.documentElement.dataset.text = textSize;
+      } catch (e) {}
+    </script>
+
+    <!-- ─ Icons ─ -->
+    <!-- SVG is primary in modern browsers and swaps light/dark with the
+         toolbar theme (see the media query inside). PNG + .ico are the
+         static light-mark fallback for Safari and older browsers.
+         The ?v=N query busts Cloudflare's edge cache AND the browser's
+         sticky favicon cache when the art changes at the same path —
+         BUMP IT whenever a favicon file changes. -->
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+    <link rel="icon" type="image/png" href="../assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="../assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ─ Fonts ─ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="../assets/css/css2.css" rel="stylesheet" />
+    <script type="module" crossorigin src="../assets/js/index-BASNSRmZ.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/css/index-5rAllWBO.css">
+  
+<link rel="canonical" href="index.html" />
+</head>
+  <body class="bg-background text-text font-sans antialiased">
+    <div id="root"><main data-crawl style="max-width:760px;margin:48px auto;padding:0 16px;font:16px/1.6 Inter,system-ui,sans-serif"><h1>Explore games</h1><p>Browse tabletop games published by their designers on Prototable, playable in the browser.</p><ul><li><a href="../game/hearts/index.html">Hearts</a>: Dodge every heart and the Queen of Spades. Lowest score wins. (3–4 players, about 30 minutes, by Prototable)</li><li><a href="../game/food-your-way-our/index.html">food your way our</a> (by Bhoir Arya Amit 202303010144)</li><li><a href="../game/chess/index.html">Chess</a>: The classic, with a chess clock that runs itself. (2 players, about 20 minutes, by Prototable)</li><li><a href="../game/checkers/index.html">Checkers</a>: Jump, capture, get crowned. Stack two to make a king. (2 players, about 15 minutes, by Prototable)</li><li><a href="../game/crazy-eights/index.html">Crazy Eights</a>: Match the suit or the number. Eights are wild. (2–5 players, about 15 minutes, by Prototable)</li><li><a href="../game/blackjack/index.html">Blackjack</a>: Beat the dealer to 21. The table plays the dealer for you. (1–5 players, about 20 minutes, by Prototable)</li><li><a href="../game/texas-holdem/index.html">Texas Hold’em</a>: Two cards each, five in the middle, and a lot of bluffing. (2–6 players, about 45 minutes, by Prototable)</li></ul><nav><a href="../about/index.html">About Prototable</a> &middot; <a href="../features/index.html">Features</a> &middot; <a href="../card-game-maker/index.html">Card game maker</a> &middot; <a href="../pricing/index.html">Pricing</a> &middot; <a href="../vs/index.html">Prototable compared with Tabletop Simulator, Tabletopia, Screentop and more</a> &middot; <a href="../guides/playtest-a-card-game-online/index.html">How to playtest a card game online</a> &middot; <a href="index.html">Explore games</a></nav></main></div>
+  </body>
+</html>
